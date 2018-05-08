@@ -1,14 +1,24 @@
 <template>
   <div id="q-app">
-    <router-view />
+      <q-list highlight>
+        <q-list-header>Letzte Ausgaben</q-list-header>
+          <q-item v-for="(idx, item) in demoData" :key="idx">
+            {{item}}
+          </q-item>
+      </q-list>
   </div>
 </template>
 
 <script>
-console.log('test1')
+import demoData from './demoData'
 
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      demoData
+    }
+  }
 }
 
 </script>
