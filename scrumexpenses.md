@@ -13,9 +13,12 @@ A_6: App should start with demo data
 A_7: Endless Scrolling / Paging for list view
 A_8: Responsive
 
-* 
-*
-*
+* Implement initial list
+* Fill initial list with demodata
+* Implement detail view
+* Create switch views menu
+* Implement scrolling
++ Implement pagination
 
 ## Edit expense [S]
 
