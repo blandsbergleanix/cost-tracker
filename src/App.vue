@@ -1,19 +1,19 @@
 <template>
-  <div id="q-app">
-      <q-list highlight>
-        <q-list-header>Letzte Ausgaben</q-list-header>
-          <q-item v-for="(idx, item) in demoData" :key="idx">
-            {{item}}
-          </q-item>
-      </q-list>
-  </div>
+<div id="q-app">
+  <q-toolbar color="primary">
+    my cost app
+  </q-toolbar>
+  <cost-list :costs="demoData"/>
+</div>
 </template>
 
 <script>
 import demoData from './demoData'
+import CostList from './components/CostList'
 
 export default {
   name: 'App',
+  components: { CostList },
   data () {
     return {
       demoData

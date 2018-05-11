@@ -18,7 +18,7 @@ A_8: Responsive
 * Implement detail view
 * Create switch views menu
 * Implement scrolling
-+ Implement pagination
+* Implement pagination
 
 ## Edit expense [S]
 
