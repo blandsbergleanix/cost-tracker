@@ -53,6 +53,7 @@ module.exports = function (ctx) {
         'QToolbar',
         'QToolbarTitle',
         'QPagination',
+        'QField',
         'QBtn',
         'QIcon',
         'QList',
