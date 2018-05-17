@@ -1,8 +1,5 @@
 <template>
-<div id="q-app">
-  <q-toolbar color="primary">
-    Kostentracker
-  </q-toolbar>
+<div id="q-route">
   <cost-list :costs="currentData"/>
    <q-pagination input v-model="page"
     :min="minPages" :max="maxPages" v-on:input="pageInput" />
@@ -10,9 +7,6 @@
 </template>
 
 <script>
-import demoData from './demoData'
-import CostList from './components/CostList'
-
 const ENTRIES_PER_PAGE = 5
 let page = 1
 
@@ -35,9 +29,8 @@ const app = {
     }
   }
 }
-
-export default app
 </script>
 
 <style>
+
 </style>
