@@ -3,37 +3,21 @@
   <q-toolbar color="primary">
     Kostentracker
   </q-toolbar>
-  <cost-list :costs="currentData"/>
-   <q-pagination input v-model="page"
-    :min="minPages" :max="maxPages" v-on:input="pageInput" />
+<router-view>
+
+</router-view>
 </div>
 </template>
 
 <script>
-import demoData from './demoData'
-import CostList from './components/CostList'
-
-const ENTRIES_PER_PAGE = 5
-let page = 1
-
+import router from './router/index.js'
 const app = {
   name: 'App',
-  components: { CostList },
   data () {
     return {
-      get currentData () {
-        return demoData.slice((page - 1) * ENTRIES_PER_PAGE, page * ENTRIES_PER_PAGE)
-      },
-      page: page,
-      minPages: 1,
-      maxPages: Math.ceil(demoData.length / ENTRIES_PER_PAGE)
     }
   },
-  methods: {
-    pageInput: function (newPage) {
-      page = newPage
-    }
-  }
+  router
 }
 
 export default app

@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import demoData from '../demoData'
+import CostList from '../components/CostList.vue'
+
 const ENTRIES_PER_PAGE = 5
 let page = 1
 
-const app = {
-  name: 'App',
+export default {
   components: { CostList },
   data () {
     return {
