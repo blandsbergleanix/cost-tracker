@@ -1,3 +1,8 @@
 <template>
-<q-input v-model="text" stack-label="Stack Label" />
+<div>
+  {{demoData}}
+</div>
 </template>
+
+<script>
+</script>

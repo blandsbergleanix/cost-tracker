@@ -4,7 +4,6 @@
     Kostentracker
   </q-toolbar>
 <router-view>
-
 </router-view>
 </div>
 </template>

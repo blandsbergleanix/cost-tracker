@@ -5,6 +5,8 @@ export default [
   {
     path: '/overview', component: costListOverview
   },
-  {path: 'costdetail', component: costdetails},
+  {
+    path: 'costdetail', component: costdetails
+  },
   {path: '/', redirect: '/overview'}
 ]
