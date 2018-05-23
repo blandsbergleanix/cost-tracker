@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import router from './router/index.js'
+import router from './router'
 const app = {
   name: 'App',
   data () {

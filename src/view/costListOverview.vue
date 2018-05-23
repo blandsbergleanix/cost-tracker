@@ -7,27 +7,31 @@
 </template>
 
 <script>
-import demoData from '../demoData'
+import { mapGetters } from 'vuex'
 import CostList from '../components/CostList.vue'
 
 const ENTRIES_PER_PAGE = 5
-let page = 1
 
 export default {
   components: { CostList },
   data () {
     return {
-      get currentData () {
-        return demoData.slice((page - 1) * ENTRIES_PER_PAGE, page * ENTRIES_PER_PAGE)
-      },
-      page: page,
-      minPages: 1,
-      maxPages: Math.ceil(demoData.length / ENTRIES_PER_PAGE)
+      page: 1,
+      minPages: 1
+    }
+  },
+  computed: {
+    ...mapGetters(['costs']),
+    currentData () {
+      return this.costs.slice((this.page - 1) * ENTRIES_PER_PAGE, this.page * ENTRIES_PER_PAGE)
+    },
+    maxPages () {
+      return Math.ceil(this.costs.length / ENTRIES_PER_PAGE)
     }
   },
   methods: {
     pageInput: function (newPage) {
-      page = newPage
+      this.page = newPage
     }
   }
 }
