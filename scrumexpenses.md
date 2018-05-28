@@ -4,14 +4,14 @@
 
 As a user I want to add an expense.
 
-A_1: List view
-A_2: Detail view for create
+X A_1: List view
+X A_2: Detail view for create
 A_3: Categories out of scope
 A_4: Persistence out of scope
-A_5: Cancel Button
-A_6: App should start with demo data
-A_7: Endless Scrolling / Paging for list view
-A_8: Responsive
+X A_5: Cancel Button
+X A_6: App should start with demo data
+X A_7: Endless Scrolling / Paging for list view
+X A_8: Responsive
 
 * Implement initial list
 * Fill initial list with demodata
@@ -24,7 +24,8 @@ A_8: Responsive
 
 As a user I want to edit an existing expense.
 
-A_1: Open detail view from list view
+X A_1: Open detail view from list view
+A_2: User can edit entry from detail view
 
 ## Delete expense [S]
 

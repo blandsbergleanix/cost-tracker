@@ -21,12 +21,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['costs']),
+    ...mapGetters(['costsObject']),
     currentData () {
-      return this.costs.slice((this.page - 1) * ENTRIES_PER_PAGE, this.page * ENTRIES_PER_PAGE)
+      return this.costsObject.slice((this.page - 1) * ENTRIES_PER_PAGE, this.page * ENTRIES_PER_PAGE)
     },
     maxPages () {
-      return Math.ceil(this.costs.length / ENTRIES_PER_PAGE)
+      return Math.ceil(this.costsObject.length / ENTRIES_PER_PAGE)
     }
   },
   methods: {

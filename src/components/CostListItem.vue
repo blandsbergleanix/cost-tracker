@@ -1,18 +1,18 @@
 <template>
   <q-item>
     <q-item-side>
-     {{cost[0]}}
+     {{cost.date}}
     </q-item-side>
     <q-item-main>
       <q-item-tile label>
-        {{cost[1]}}
+        {{cost.expenseName}}
       </q-item-tile>
       <q-item-tile sublabel>
-        this is a demo text
+        {{cost.comment}}
       </q-item-tile>
     </q-item-main>
     <q-item-side right>
-      {{cost[2]}}
+      {{cost.expenseValue}}
     </q-item-side>
   </q-item>
 </template>

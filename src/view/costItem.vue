@@ -8,14 +8,14 @@
       @click="$emit('close')"
     />
     <q-toolbar-title>
-    Title {{cost}}
+    Title
     </q-toolbar-title>
   </q-toolbar>
   <div class="col-sm-12">
-    <q-input v-model="costName" inverted float-label="Posten"/>
+    <q-input v-model="cost.expenseName" inverted float-label="Posten"/>
   </div>
   <div class="col-sm-12">
-    <q-input v-model="costValue" inverted float-label="Preis"/>
+    <q-input v-model="cost.expenseValue" inverted float-label="Preis"/>
   </div>
   <div class="col-sm-12">
     <q-input type="textarea" v-model="costDescription" inverted float-label="Beschreibung"/>

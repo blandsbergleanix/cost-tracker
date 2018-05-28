@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import demoData from '../demoData'
+import demoDataObject from '../demoDataObject'
 
 Vue.use(Vuex)
 
@@ -8,7 +9,8 @@ Vue.use(Vuex)
 // each Vuex instance is just a single state tree.
 const state = {
   count: 0,
-  costs: demoData
+  costs: demoData,
+  costsObject: demoDataObject
 }
 
 // mutations are operations that actually mutates the state.
@@ -48,6 +50,7 @@ const actions = {
 // getters are functions
 const getters = {
   costs: state => state.costs,
+  costsObject: state => state.costsObject,
   count: state => state.count,
   evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
 }
