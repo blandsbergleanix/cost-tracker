@@ -1,6 +1,5 @@
 <template>
-<div
-  class="row q-pa-sm gutter-xs content-center">
+<div>
   <q-toolbar>
     <q-btn
       flat round dense
@@ -11,16 +10,20 @@
     Title
     </q-toolbar-title>
   </q-toolbar>
-  <div class="col-sm-12">
-    <q-input v-model="cost.expenseName" inverted float-label="Posten"/>
+  <div class="row gutter-xs q-pa-sm">
+    <div class="col-sm-12">
+      <q-input v-model="cost.expenseName" inverted float-label="Posten"/>
+    </div>
+    <div class="col-sm-12">
+      <q-input v-model="cost.expenseValue" inverted float-label="Preis"/>
+    </div>
+    <div class="col-sm-12">
+      <q-input type="textarea" v-model="cost.comment" inverted float-label="Beschreibung"/>
+    </div>
   </div>
-  <div class="col-sm-12">
-    <q-input v-model="cost.expenseValue" inverted float-label="Preis"/>
+  <div class="row q-mt-sm q-pa-sm">
+    <q-btn color="primary" @click="removeExpense(cost); $emit('close')">Delete</q-btn>
   </div>
-  <div class="col-sm-12">
-    <q-input type="textarea" v-model="costDescription" inverted float-label="Beschreibung"/>
-  </div>
-  <q-btn @click="increment()">Increment</q-btn>
 </div>
 </template>
 
@@ -33,7 +36,7 @@ export default {
     ...mapGetters(['count'])
   },
   methods: {
-    ...mapActions(['increment'])
+    ...mapActions(['increment', 'removeExpense'])
   },
   data () {
     return {

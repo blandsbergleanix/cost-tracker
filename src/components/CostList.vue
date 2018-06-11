@@ -7,6 +7,7 @@
       @click.native="clickOnCostHandler(cost)"/>
     <q-modal v-model="modalState">
       <cost-form
+        v-if="selectedCost"
         :cost="selectedCost"
         @close="closeModal()"
         style="max-width: 400px"/>
@@ -24,7 +25,8 @@ export default {
   data () {
     return {
       modalState: false,
-      selectedCost: undefined
+      selectedCost: undefined,
+      modalStateForNewItemForm: false
     }
   },
   methods: {
@@ -35,6 +37,9 @@ export default {
     closeModal () {
       this.selectedCost = undefined
       this.modalState = false
+    },
+    createNewEntry () {
+      this.modalState = true
     }
   }
 }

@@ -34,7 +34,13 @@ As a user I want to delete an expense item.
 A_1: Delete Button in detail view
 A_2: Are you sure?
 
+# Sprint 1 8.5. - 20.5. (5d = 40h)
+
+## 
+
 # Backlog for 4 more weeks
+
+## Create
 
 ## Persistence
 

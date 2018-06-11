@@ -1,8 +1,16 @@
 <template>
 <div id="q-route">
   <cost-list :costs="currentData"/>
-   <q-pagination input v-model="page"
+  <q-pagination input v-model="page"
     :min="minPages" :max="maxPages" v-on:input="pageInput" />
+  <q-btn
+    round
+    color="primary"
+    @click="addCost"
+    class="fixed"
+    icon="add"
+    style="right: 18px; bottom: 18px"
+    />
 </div>
 </template>
 
@@ -32,6 +40,9 @@ export default {
   methods: {
     pageInput: function (newPage) {
       this.page = newPage
+    },
+    addCost () {
+      console.log('adding cost')
     }
   }
 }

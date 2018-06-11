@@ -8,7 +8,6 @@ Vue.use(Vuex)
 // root state object.
 // each Vuex instance is just a single state tree.
 const state = {
-  count: 0,
   costs: demoData,
   costsObject: demoDataObject
 }
@@ -19,40 +18,34 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
-  increment (state) {
-    state.count++
+  removeExpense (state, id) {
+    // debugger
+    state.costsObject = state.costsObject.filter(cost => cost.id !== id)
   },
-  decrement (state) {
-    state.count--
+  addExpense (state, id) {
+    state.costsObject = state.costsObject.push()
   }
 }
 
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
-  increment: ({ commit }) => commit('increment'),
-  decrement: ({ commit }) => commit('decrement'),
-  incrementIfOdd ({ commit, state }) {
-    if ((state.count + 1) % 2 === 0) {
-      commit('increment')
-    }
+  removeExpense: ({ commit, dispatch }, cost) => {
+    commit('removeExpense', cost.id)
+    dispatch('sayHello', 'Roman')
   },
-  incrementAsync ({ commit }) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        commit('increment')
-        resolve()
-      }, 1000)
-    })
+  sayHello: ({ commit }, name) => {
+    console.log('hi there ' + name)
+  },
+  addExpense: ({commit}, cost) => {
+    console.log(cost)
   }
 }
 
 // getters are functions
 const getters = {
   costs: state => state.costs,
-  costsObject: state => state.costsObject,
-  count: state => state.count,
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+  costsObject: state => state.costsObject
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,
