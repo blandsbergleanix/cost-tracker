@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import demoData from '../demoData'
 import demoDataObject from '../demoDataObject'
+import * as uuid from 'uuid'
+import costsPlugin from './costsPlugin'
 
 Vue.use(Vuex)
 
@@ -37,6 +39,60 @@ const actions = {
   sayHello: ({ commit }, name) => {
     console.log('hi there ' + name)
   },
+  initializeDatabase: ({ commit }, costs) => {
+    const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB
+    const open = indexedDB.open('MyDatabase', 1)
+
+    open.onupgradeneeded = () => {
+      var db = open.result
+      db.createObjectStore('CostStore', {keyPath: 'id'})
+      // var index = store.createIndex('NameIndex', ['name.last', 'name.first'])
+    }
+    open.onsuccess = () => {
+      // Start a new transaction
+      var db = open.result
+      var tx = db.transaction('CostStore', 'readwrite')
+      var store = tx.objectStore('CostStore')
+      // var index = store.index('NameIndex')
+      // Add some data
+      costs.forEach(cost => store.put(cost))
+
+      // Close the db when the transaction is done
+      tx.oncomplete = () => {
+        db.close()
+      }
+    }
+  },
+  saveExpense: ({ commit }, cost) => {
+    const isUpdate = !!cost.id
+    if (!isUpdate) cost.id = uuid.v4().toString()
+
+    const indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB
+    const open = indexedDB.open('MyDatabase', 1)
+
+    open.onupgradeneeded = () => {
+      var db = open.result
+      db.createObjectStore('CostStore', {keyPath: 'id'})
+      // var index = store.createIndex('NameIndex', ['name.last', 'name.first'])
+    }
+
+    open.onsuccess = () => {
+      // Start a new transaction
+      var db = open.result
+      var tx = db.transaction('CostStore', 'readwrite')
+      var store = tx.objectStore('CostStore')
+      // var index = store.index('NameIndex')
+      // Add some data
+      store.put(cost)
+
+      // Close the db when the transaction is done
+      tx.oncomplete = () => {
+        console.log('cost saved!')
+        db.close()
+      }
+    }
+    console.log('saving cost', isUpdate, cost)
+  },
   addExpense: ({commit}, cost) => {
     console.log(cost)
   }
@@ -54,5 +110,6 @@ export default new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  plugins: [costsPlugin]
 })
