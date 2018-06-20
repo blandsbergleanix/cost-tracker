@@ -53,9 +53,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['increment', 'removeExpense', 'saveExpense']),
+    ...mapActions(['removeExpense', 'saveExpense']),
     save () {
       this.saveExpense(this.tempCost)
+        .then(() => {
+          this.$emit('update')
+        })
     }
   },
   mounted () {

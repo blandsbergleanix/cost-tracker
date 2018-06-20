@@ -1,7 +1,7 @@
 import demoData from '../demoDataObject'
 
 const plugin = store => {
-  store.dispatch('initializeDatabase', demoData)
+  store.dispatch('updateStoreState', demoData)
 }
 
 export default plugin

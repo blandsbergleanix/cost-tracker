@@ -12,7 +12,7 @@
       </q-item-tile>
     </q-item-main>
     <q-item-side right>
-      {{cost.expenseValue}}
+      {{cost.expenseValue}} €
     </q-item-side>
   </q-item>
 </template>
