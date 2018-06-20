@@ -56,8 +56,10 @@ export default {
     ...mapActions(['removeExpense', 'saveExpense']),
     save () {
       this.saveExpense(this.tempCost)
-        .then(() => {
-          this.$emit('update')
+        .then(() => this.$emit('close'))
+        .catch(err => {
+          console.error(err)
+          this.$emit('close')
         })
     }
   },

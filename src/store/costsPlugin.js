@@ -1,7 +1,5 @@
-import demoData from '../demoDataObject'
-
 const plugin = store => {
-  store.dispatch('updateStoreState', demoData)
+  store.dispatch('synchronizeLocalStoreWithServer')
 }
 
 export default plugin
